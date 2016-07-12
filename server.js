@@ -4,7 +4,7 @@ import GoodConsole from 'good-console';
 import Blipp from 'blipp';
 import Inert from 'inert';
 import Yar from 'Yar'
-import { CookieToken } from './app/tokens';
+import { CookieToken } from './data/tokens';
 
 const server = new Server();
 const PORT = process.env.PORT || 3001;
@@ -18,14 +18,14 @@ const io = require('socket.io')(server.listener);
 server.register([
   Inert,
   { register: Blipp },
-  { register: Good,
-    options: {
-      reporters: [{
-        reporter: GoodConsole,
-        events: { log: '*', response: '*' }
-      }]
-    },
-  },
+  // { register: Good,
+  //   options: {
+  //     reporters: [{
+  //       reporter: GoodConsole,
+  //       events: { log: '*', response: '*' }
+  //     }]
+  //   },
+  // },
   {
     register: Yar,
     options: {cookieOptions: {
