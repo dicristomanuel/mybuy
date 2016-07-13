@@ -1,11 +1,11 @@
 @font-face {
-    font-family: 'proximaNovaBold';
-    src: url('/assets/fonts/proximaNovaBold.otf');
+  font-family: 'proximaNovaBold';
+  src: url('/assets/fonts/proximaNovaBold.otf');
 }
 
 @font-face {
-    font-family: 'proximaNovaRegular';
-    src: url('/assets/fonts/proximaNovaRegular.otf');
+  font-family: 'proximaNovaRegular';
+  src: url('/assets/fonts/proximaNovaRegular.otf');
 }
 
 .main-container {
@@ -93,8 +93,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-	min-width: 30px;
-	min-height: 30px;
+  min-width: 30px;
+  min-height: 30px;
   font-weight: bold;
 }
 
@@ -147,17 +147,40 @@
   width: 50%;
   margin: 60px auto;
   justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.brand {
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.active {
+  background-image: url('/assets/images/check-icon.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 9999;
+  padding: 20px;
 }
 
 .buttons {
   display: flex;
   width: 49%;
   margin: 0 auto;
+  align-items: center;
   justify-content: space-between;
 }
 
 .button {
   color: #31cca3;
+}
+
+.button-next {
+  padding: 15px 40px;
+  background: #31cca3;
+  color: white;
+  border: 1px solid #4ba29a;
+  border-radius: 2px;
 }
 
 .stages {
@@ -252,27 +275,29 @@
 
 .img-category {
   width: 100%;
-  -webkit-filter: grayscale(80%);
-  filter: grayscale(80%);
   transition: grayscale .15s ease-in-out;
   transition: all .2s ease-in-out;
 }
 
 .image-hover {
-  -webkit-filter: grayscale(0%);
-  filter: grayscale(0%);
   transform: scale(1.1);
 }
 
 .overlay {
-  background: RGB(61, 69, 77);
+  background: #3D454D;
   position: absolute;
   width: 0px;
   padding: 100%;
-  opacity: .3;
+  opacity: .7;
   z-index: 1;
+  transition: all .2s ease-in-out;
+  
 }
 
 .food-and-beverage {
   width: 118%;
+}
+
+.big-pets {
+  width: 141%;
 }

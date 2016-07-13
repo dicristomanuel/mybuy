@@ -30192,13 +30192,18 @@
 	  _createClass(Category, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      if (this.props.name === 'FoodAndBeverage') this.refs.FoodAndBeverage.className = 'food-and-beverage img-category';
+	      if (this.props.name === 'FoodAndBeverage') this.refs.FoodAndBeverage.className = 'food-and-beverage img-category';else if (this.props.name === 'pets') {
+	        console.log(this.refs.pets);
+	        this.refs.pets.className = 'big-pets img-category';
+	      }
 	    }
 	  }, {
 	    key: 'mouseOver',
 	    value: function mouseOver(category) {
 	      if (category === 'FoodAndBeverage') {
 	        this.refs[category].className = 'image-hover food-and-beverage img-category';
+	      } else if (category === 'pets') {
+	        this.refs[category].className = 'image-hover big-pets img-category';
 	      } else {
 	        this.refs[category].className = 'image-hover img-category';
 	      }
@@ -30208,9 +30213,21 @@
 	    value: function mouseLeave(category) {
 	      if (category === 'FoodAndBeverage') {
 	        this.refs[category].className = 'food-and-beverage img-category';
+	      } else if (category === 'pets') {
+	        this.refs[category].className = 'big-pets img-category';
 	      } else {
 	        this.refs[category].className = 'img-category';
 	      }
+	    }
+	  }, {
+	    key: 'overlayHover',
+	    value: function overlayHover(overlay) {
+	      this.refs[overlay].style.opacity = '.4';
+	    }
+	  }, {
+	    key: 'overlayHoverOut',
+	    value: function overlayHoverOut(overlay) {
+	      this.refs[overlay].style.opacity = '.7';
 	    }
 	  }, {
 	    key: 'capitalize',
@@ -30226,6 +30243,7 @@
 	    key: 'render',
 	    value: function render() {
 	      var name = this.props.name;
+	      console.log(name);
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'category', onClick: this.onClick.bind(this), onMouseEnter: this.mouseOver.bind(this, name), onMouseLeave: this.mouseLeave.bind(this, name) },
@@ -30234,7 +30252,7 @@
 	          { className: 'category-title' },
 	          this.capitalize(name)
 	        ),
-	        _react2.default.createElement('div', { className: 'overlay' }),
+	        _react2.default.createElement('div', { className: 'overlay', onMouseEnter: this.overlayHover.bind(this, 'overlay-' + name), onMouseLeave: this.overlayHoverOut.bind(this, 'overlay-' + name), ref: 'overlay-' + name }),
 	        _react2.default.createElement('img', { src: '/assets/images/' + name + '.jpg', className: 'img-category', ref: name })
 	      );
 	    }
@@ -30518,6 +30536,8 @@
 
 	var _locator2 = _interopRequireDefault(_locator);
 
+	var _reactDom = __webpack_require__(33);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -30541,6 +30561,11 @@
 	      // get brands to display for > this.props.params.category <
 	    }
 	  }, {
+	    key: 'toggleActive',
+	    value: function toggleActive(product) {
+	      this.refs[product].className += ' active';
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
@@ -30557,6 +30582,26 @@
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'brandlist' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'brand', ref: 'petco', onClick: this.toggleActive.bind(this, 'petco') },
+	            _react2.default.createElement('img', { src: '/assets/images/petco.jpg' })
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'brand', ref: 'petsmart', onClick: this.toggleActive.bind(this, 'petsmart') },
+	            _react2.default.createElement('img', { src: '/assets/images/petsmart.jpg' })
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'brand', ref: 'petsupplies', onClick: this.toggleActive.bind(this, 'petsupplies') },
+	            _react2.default.createElement('img', { src: '/assets/images/petsupplies.jpg' })
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'brand', ref: 'pupjoy', onClick: this.toggleActive.bind(this, 'pupjoy') },
+	            _react2.default.createElement('img', { src: '/assets/images/pupjoy.jpg' })
+	          ),
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'brand' },
@@ -30588,8 +30633,8 @@
 	          ),
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'button' },
-	            'next >'
+	            { className: 'button-next' },
+	            'NEXT  >'
 	          )
 	        ),
 	        _react2.default.createElement(_footer2.default, null)
