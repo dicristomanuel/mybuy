@@ -6,6 +6,6 @@ import BrandsList from '../components/brandsList';
 export default (
     <Route path='/'>
       <IndexRoute component={CategoriesList} />
-      <Route path='/brands-list' component={BrandsList} />
+      <Route path='/brands-list/:category' component={BrandsList} />
     </Route>
 )

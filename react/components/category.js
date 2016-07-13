@@ -1,9 +1,8 @@
 import React, { PropTypes, Component } from 'react';
 import FlipMove from 'react-flip-move';
-
+import { browserHistory } from 'react-router';
 
 class Category extends Component {
-
   componentDidMount() {
     if (this.props.name === 'FoodAndBeverage')
       this.refs.FoodAndBeverage.className = 'food-and-beverage';
@@ -36,10 +35,14 @@ class Category extends Component {
       return name.charAt(0).toUpperCase() + name.slice(1);
   }
 
+  onClick() {
+    browserHistory.push(`/brands-list/${this.props.name}`);
+  }
+
   render() {
     const name = this.props.name
     return(
-      <div className='category' onMouseEnter={this.mouseOver.bind(this, name)} onMouseLeave={this.mouseLeave.bind(this, name)}>
+      <div className='category' onClick={ this.onClick.bind(this) } onMouseEnter={ this.mouseOver.bind(this, name) } onMouseLeave={ this.mouseLeave.bind(this, name) }>
         <div className='category-title'>{this.capitalize(name)}</div>
         <div className='overlay'></div>
         <img src={`/assets/images/${name}.jpg`} ref={name}/>

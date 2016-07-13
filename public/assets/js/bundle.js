@@ -26670,7 +26670,7 @@
 
 	var _categoriesList2 = _interopRequireDefault(_categoriesList);
 
-	var _brandsList = __webpack_require__(236);
+	var _brandsList = __webpack_require__(250);
 
 	var _brandsList2 = _interopRequireDefault(_brandsList);
 
@@ -26680,7 +26680,7 @@
 	  _reactRouter.Route,
 	  { path: '/' },
 	  _react2.default.createElement(_reactRouter.IndexRoute, { component: _categoriesList2.default }),
-	  _react2.default.createElement(_reactRouter.Route, { path: '/brands-list', component: _brandsList2.default })
+	  _react2.default.createElement(_reactRouter.Route, { path: '/brands-list/:category', component: _brandsList2.default })
 	);
 
 /***/ },
@@ -26699,11 +26699,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactFlipMove = __webpack_require__(237);
+	var _reactFlipMove = __webpack_require__(236);
 
 	var _reactFlipMove2 = _interopRequireDefault(_reactFlipMove);
 
-	var _category = __webpack_require__(250);
+	var _category = __webpack_require__(249);
 
 	var _category2 = _interopRequireDefault(_category);
 
@@ -26745,27 +26745,90 @@
 	  }, {
 	    key: 'categories',
 	    value: function categories() {
-	      return [{ name: 'beauty', key: 1 }, { name: 'restaurants', key: 2 }, { name: 'pets', key: 3 }, { name: 'HomeAndGarden', key: 4 }, { name: 'FoodAndBeverage', key: 5 }, { name: 'BabyAndKids', key: 6 }];
+	      return [{ name: 'BabyAndKids', key: 6 }, { name: 'beauty', key: 1 }, { name: 'FoodAndBeverage', key: 5 }, { name: 'HomeAndGarden', key: 4 }, { name: 'pets', key: 3 }, { name: 'restaurants', key: 2 }];
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
-	        _reactFlipMove2.default,
-	        { easing: 'cubic-bezier(.49,.05,.62,.9)', className: 'categories-container' },
-	        this.categories().map(function (category) {
-	          return _react2.default.createElement(_category2.default, { name: category.name, key: category.key });
-	        })
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'p',
+	          { className: 'title' },
+	          'Leave the hard work to us -- we’ll help you find the best deals available within your budget.'
+	        ),
+	        _react2.default.createElement(
+	          'p',
+	          { className: 'sub-title' },
+	          'Start by selecting the category you want to shop.'
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'locator' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'stages' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'stage' },
+	              'CHOOSE CATEGORY'
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'stage' },
+	              'PICK BRANDS'
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'stage' },
+	              'ENTER BUDGET'
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'stage' },
+	              'VIEW RESULTS'
+	            )
+	          ),
+	          _react2.default.createElement('div', { className: 'line' }),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'numbers' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'dot' },
+	              '1'
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'dot' },
+	              '2'
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'dot' },
+	              '3'
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'dot' },
+	              '4'
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(
+	          _reactFlipMove2.default,
+	          { easing: 'cubic-bezier(.49,.05,.62,.9)', className: 'categories-container' },
+	          this.categories().map(function (category) {
+	            return _react2.default.createElement(_category2.default, { name: category.name, key: category.key });
+	          })
+	        )
 	      );
 	    }
 	  }]);
 
 	  return CategoriesList;
 	}(_react.Component);
-
-	// CategoriesList.PropTypes = {
-	//   giftcards: PropTypes.string.isRequired,
-	// }
 
 	exports.default = CategoriesList;
 
@@ -26775,63 +26838,14 @@
 
 	'use strict';
 
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var BrandsList = function (_Component) {
-	  _inherits(BrandsList, _Component);
-
-	  function BrandsList() {
-	    _classCallCheck(this, BrandsList);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(BrandsList).apply(this, arguments));
-	  }
-
-	  _createClass(BrandsList, [{
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement('div', { className: 'main-container' });
-	    }
-	  }]);
-
-	  return BrandsList;
-	}(_react.Component);
-
-	// BrandsList.PropTypes = {
-	//   giftcards: PropTypes.string.isRequired,
-	// }
-
-	exports.default = BrandsList;
-
-/***/ },
-/* 237 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
 	/**
 	 * React Flip Move
 	 * (c) 2016-present Joshua Comeau
 	 */
-	module.exports = __webpack_require__(238);
+	module.exports = __webpack_require__(237);
 
 /***/ },
-/* 238 */
+/* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26870,13 +26884,13 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	__webpack_require__(239);
+	__webpack_require__(238);
 
-	var _propConverter = __webpack_require__(240);
+	var _propConverter = __webpack_require__(239);
 
 	var _propConverter2 = _interopRequireDefault(_propConverter);
 
-	var _helpers = __webpack_require__(248);
+	var _helpers = __webpack_require__(247);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -27366,7 +27380,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 239 */
+/* 238 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -27400,7 +27414,7 @@
 	}
 
 /***/ },
-/* 240 */
+/* 239 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27419,13 +27433,13 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _lodash = __webpack_require__(241);
+	var _lodash = __webpack_require__(240);
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _helpers = __webpack_require__(248);
+	var _helpers = __webpack_require__(247);
 
-	var _enterLeavePresets = __webpack_require__(249);
+	var _enterLeavePresets = __webpack_require__(248);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -27584,7 +27598,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 241 */
+/* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -27595,10 +27609,10 @@
 	 * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
 	 * Copyright Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 */
-	var baseDifference = __webpack_require__(242),
-	    baseFlatten = __webpack_require__(245),
-	    keysIn = __webpack_require__(246),
-	    rest = __webpack_require__(247);
+	var baseDifference = __webpack_require__(241),
+	    baseFlatten = __webpack_require__(244),
+	    keysIn = __webpack_require__(245),
+	    rest = __webpack_require__(246);
 
 	/** Used as references for various `Number` constants. */
 	var INFINITY = 1 / 0;
@@ -27905,7 +27919,7 @@
 
 
 /***/ },
-/* 242 */
+/* 241 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -27916,7 +27930,7 @@
 	 * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
 	 * Copyright Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 */
-	var root = __webpack_require__(243);
+	var root = __webpack_require__(242);
 
 	/** Used as the size to enable large array optimizations. */
 	var LARGE_ARRAY_SIZE = 200;
@@ -28722,7 +28736,7 @@
 
 
 /***/ },
-/* 243 */
+/* 242 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module, global) {/**
@@ -28785,10 +28799,10 @@
 
 	module.exports = root;
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(244)(module), (function() { return this; }())))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(243)(module), (function() { return this; }())))
 
 /***/ },
-/* 244 */
+/* 243 */
 /***/ function(module, exports) {
 
 	module.exports = function(module) {
@@ -28804,7 +28818,7 @@
 
 
 /***/ },
-/* 245 */
+/* 244 */
 /***/ function(module, exports) {
 
 	/**
@@ -29159,7 +29173,7 @@
 
 
 /***/ },
-/* 246 */
+/* 245 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module, global) {/**
@@ -29676,10 +29690,10 @@
 
 	module.exports = keysIn;
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(244)(module), (function() { return this; }())))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(243)(module), (function() { return this; }())))
 
 /***/ },
-/* 247 */
+/* 246 */
 /***/ function(module, exports) {
 
 	/**
@@ -30030,7 +30044,7 @@
 
 
 /***/ },
-/* 248 */
+/* 247 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -30106,7 +30120,7 @@
 	}
 
 /***/ },
-/* 249 */
+/* 248 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -30175,7 +30189,7 @@
 	var disablePreset = exports.disablePreset = 'none';
 
 /***/ },
-/* 250 */
+/* 249 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30190,9 +30204,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactFlipMove = __webpack_require__(237);
+	var _reactFlipMove = __webpack_require__(236);
 
 	var _reactFlipMove2 = _interopRequireDefault(_reactFlipMove);
+
+	var _reactRouter = __webpack_require__(172);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -30240,12 +30256,17 @@
 	      if (name === 'FoodAndBeverage') return 'Food & Beverage';else if (name === 'HomeAndGarden') return 'Home & Garden';else if (name === 'BabyAndKids') return 'Baby & Kids';else return name.charAt(0).toUpperCase() + name.slice(1);
 	    }
 	  }, {
+	    key: 'onClick',
+	    value: function onClick() {
+	      _reactRouter.browserHistory.push('/brands-list/' + this.props.name);
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var name = this.props.name;
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'category', onMouseEnter: this.mouseOver.bind(this, name), onMouseLeave: this.mouseLeave.bind(this, name) },
+	        { className: 'category', onClick: this.onClick.bind(this), onMouseEnter: this.mouseOver.bind(this, name), onMouseLeave: this.mouseLeave.bind(this, name) },
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'category-title' },
@@ -30261,6 +30282,60 @@
 	}(_react.Component);
 
 	exports.default = Category;
+
+/***/ },
+/* 250 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var BrandsList = function (_Component) {
+	  _inherits(BrandsList, _Component);
+
+	  function BrandsList() {
+	    _classCallCheck(this, BrandsList);
+
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(BrandsList).apply(this, arguments));
+	  }
+
+	  _createClass(BrandsList, [{
+	    key: 'componentWillMount',
+	    value: function componentWillMount() {
+	      // get brands to display for > this.props.params.category <
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement('div', { className: 'brands-container' });
+	    }
+	  }]);
+
+	  return BrandsList;
+	}(_react.Component);
+
+	// BrandsList.PropTypes = {
+	//   giftcards: PropTypes.string.isRequired,
+	// }
+
+	exports.default = BrandsList;
 
 /***/ }
 /******/ ]);

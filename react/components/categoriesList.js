@@ -22,27 +22,71 @@ class CategoriesList extends Component {
 
   categories() {
     return [
+      {name: 'BabyAndKids', key: 6},
       {name: 'beauty', key: 1},
-      {name: 'restaurants', key: 2},
-      {name: 'pets', key: 3},
-      {name: 'HomeAndGarden', key: 4},
       {name: 'FoodAndBeverage', key: 5},
-      {name: 'BabyAndKids', key: 6}
+      {name: 'HomeAndGarden', key: 4},
+      {name: 'pets', key: 3},
+      {name: 'restaurants', key: 2},
     ];
   }
 
-
   render() {
     return(
-      <FlipMove easing="cubic-bezier(.49,.05,.62,.9)" className='categories-container'>
-        { this.categories().map(category => <Category name={category.name} key={category.key}/>) }
-      </FlipMove>
+      <div>
+        <p className='title'>
+          Leave the hard work to us -- we&rsquo;ll help you find the best deals available within your budget.
+        </p>
+        <p className='sub-title'>
+          Start by selecting the category you want to shop.
+        </p>
+
+        <div className='locator'>
+
+
+          <div className='stages'>
+            <div className='stage'>
+              CHOOSE CATEGORY
+            </div>
+            <div className='stage'>
+              PICK BRANDS
+            </div>
+            <div className='stage'>
+              ENTER BUDGET
+            </div>
+            <div className='stage'>
+              VIEW RESULTS
+            </div>
+          </div>
+
+          <div className='line'>
+          </div>
+
+          <div className='numbers'>
+            <div className='dot'>
+              1
+            </div>
+            <div className='dot'>
+              2
+            </div>
+            <div className='dot'>
+              3
+            </div>
+            <div className='dot'>
+              4
+            </div>
+          </div>
+
+        </div>
+
+        <FlipMove easing="cubic-bezier(.49,.05,.62,.9)" className='categories-container'>
+          { this.categories().map(category =>
+            <Category name={category.name} key={category.key}/>)
+          }
+        </FlipMove>
+      </div>
     )
   }
 }
-
-// CategoriesList.PropTypes = {
-//   giftcards: PropTypes.string.isRequired,
-// }
 
 export default CategoriesList;
