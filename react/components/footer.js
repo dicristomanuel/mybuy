@@ -5,7 +5,9 @@ class Footer extends Component {
     render() {
       return(
         <div className='footer'>
-          <img src='/assets/images/footer.jpg'></img>
+          <div className='footer-image-container'>
+            <img src='/assets/images/footer.jpg' className='footer-img'></img>
+          </div>
         </div>
       )
     }

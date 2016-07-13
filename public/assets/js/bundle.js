@@ -30397,7 +30397,11 @@
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'header' },
-	        _react2.default.createElement('img', { src: '/assets/images/header.jpg' })
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'header-image-container' },
+	          _react2.default.createElement('img', { src: '/assets/images/header.jpg', className: 'header-img' })
+	        )
 	      );
 	    }
 	  }]);
@@ -30446,7 +30450,11 @@
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'footer' },
-	        _react2.default.createElement('img', { src: '/assets/images/footer.jpg' })
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'footer-image-container' },
+	          _react2.default.createElement('img', { src: '/assets/images/footer.jpg', className: 'footer-img' })
+	        )
 	      );
 	    }
 	  }]);
