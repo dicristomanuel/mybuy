@@ -16,7 +16,7 @@
   background: white;
   position: fixed;
   top: 0;
-  z-index: 99;
+  z-index: 99999;
   width: 100%;
   border-bottom: 1px solid #eff0f1;
 }
@@ -24,7 +24,7 @@
 .header-image-container {
   min-width: 1200px;
   max-width: 1440px;
-  margin: 0 auto -2px auto;
+  margin: 0 auto;
 }
 
 .footer-image-container {
@@ -75,6 +75,7 @@
   justify-content: center;
   padding: 30px;
   width: 100%;
+  max-width: 1000px;
 }
 
 .locator {
@@ -97,12 +98,47 @@
   font-weight: bold;
 }
 
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  width: 100%;
+  margin-top: 71px;
+  max-height: 400px;
+  overflow: hidden;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.hero-title {
+  z-index: 999;
+  font-size: 40px;
+  color: white;
+  text-align: left;
+  width: 100%;
+  margin-left: 100px;
+  font-family: 'proximaNovaRegular';
+}
+
+.dark-layout {
+  width: 100%;
+  padding: 1000px;
+  top: 0;
+  left: 0;
+  opacity: .8;
+  background: #3D454D;
+  position: absolute;
+}
+
 .stages {
   display: flex;
   justify-content: space-between;
   color: #31cca3;
   width: 100%;
-  max-width: 1165px;
+  max-width: 950px;
 }
 
 .margin-left {
@@ -114,7 +150,7 @@
 }
 
 .line {
-  border: 2px solid gray;
+  border: 2px solid #959EAE;
   width: 25%;
   z-index: -1;
   margin-top: 13px;
@@ -138,17 +174,25 @@
   border: 2px solid #31cca3;
 }
 
+.stage-enabled {
+  color: #31cca3;
+}
+
+.stage-disabled {
+  color: #959EAE;
+}
+
 .disabled {
-  background: lightgray;
+  background: #959EAE;
   border-radius: 50%;
-  color: darkgray;
+  color: #959EAE;
 }
 
 .disabled-with-border {
-  background: lightgray;
-  color: darkgray;
+  background: #959EAE;
+  color: white;
   border-radius: 50%;
-  border: 2px solid gray;
+  border: 2px solid #959EAE;
 }
 
 .categories-container {

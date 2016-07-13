@@ -3,6 +3,7 @@ import FlipMove from 'react-flip-move';
 import Category from './category';
 import Header from './header';
 import Footer from './footer';
+import Locator from './locator';
 
 
 class CategoriesList extends Component {
@@ -44,46 +45,7 @@ class CategoriesList extends Component {
             Start by selecting the category you want to shop.
           </p>
 
-          <div className='locator'>
-
-
-            <div className='stages'>
-              <div className='stage margin-left'>
-                CHOOSE CATEGORY
-              </div>
-              <div className='stage margin-left disabled'>
-                PICK BRANDS
-              </div>
-              <div className='stage disabled'>
-                ENTER BUDGET
-              </div>
-              <div className='stage disabled'>
-                VIEW RESULTS
-              </div>
-            </div>
-
-            <div className='numbers'>
-              <div className='dot enabled'>
-                1
-              </div>
-              <div className='line line-enabled'>
-              </div>
-              <div className='dot disabled-with-border'>
-                2
-              </div>
-              <div className='line'>
-              </div>
-              <div className='dot disabled-with-border'>
-                3
-              </div>
-              <div className='line'>
-              </div>
-              <div className='dot disabled-with-border'>
-                4
-              </div>
-            </div>
-
-        </div>
+        <Locator stage={1}/>
 
         <FlipMove easing="cubic-bezier(.49,.05,.62,.9)" className='categories-container'>
           { this.categories().map(category =>
