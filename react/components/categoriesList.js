@@ -45,34 +45,37 @@ class CategoriesList extends Component {
 
 
           <div className='stages'>
-            <div className='stage'>
+            <div className='stage margin-left'>
               CHOOSE CATEGORY
             </div>
-            <div className='stage'>
+            <div className='stage margin-left disabled'>
               PICK BRANDS
             </div>
-            <div className='stage'>
+            <div className='stage disabled'>
               ENTER BUDGET
             </div>
-            <div className='stage'>
+            <div className='stage disabled'>
               VIEW RESULTS
             </div>
           </div>
 
-          <div className='line'>
-          </div>
-
           <div className='numbers'>
-            <div className='dot'>
+            <div className='dot enabled'>
               1
             </div>
-            <div className='dot'>
+            <div className='line line-enabled'>
+            </div>
+            <div className='dot disabled-with-border'>
               2
             </div>
-            <div className='dot'>
+            <div className='line'>
+            </div>
+            <div className='dot disabled-with-border'>
               3
             </div>
-            <div className='dot'>
+            <div className='line'>
+            </div>
+            <div className='dot disabled-with-border'>
               4
             </div>
           </div>

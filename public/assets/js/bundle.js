@@ -26771,47 +26771,49 @@
 	            { className: 'stages' },
 	            _react2.default.createElement(
 	              'div',
-	              { className: 'stage' },
+	              { className: 'stage margin-left' },
 	              'CHOOSE CATEGORY'
 	            ),
 	            _react2.default.createElement(
 	              'div',
-	              { className: 'stage' },
+	              { className: 'stage margin-left disabled' },
 	              'PICK BRANDS'
 	            ),
 	            _react2.default.createElement(
 	              'div',
-	              { className: 'stage' },
+	              { className: 'stage disabled' },
 	              'ENTER BUDGET'
 	            ),
 	            _react2.default.createElement(
 	              'div',
-	              { className: 'stage' },
+	              { className: 'stage disabled' },
 	              'VIEW RESULTS'
 	            )
 	          ),
-	          _react2.default.createElement('div', { className: 'line' }),
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'numbers' },
 	            _react2.default.createElement(
 	              'div',
-	              { className: 'dot' },
+	              { className: 'dot enabled' },
 	              '1'
 	            ),
+	            _react2.default.createElement('div', { className: 'line line-enabled' }),
 	            _react2.default.createElement(
 	              'div',
-	              { className: 'dot' },
+	              { className: 'dot disabled-with-border' },
 	              '2'
 	            ),
+	            _react2.default.createElement('div', { className: 'line' }),
 	            _react2.default.createElement(
 	              'div',
-	              { className: 'dot' },
+	              { className: 'dot disabled-with-border' },
 	              '3'
 	            ),
+	            _react2.default.createElement('div', { className: 'line' }),
 	            _react2.default.createElement(
 	              'div',
-	              { className: 'dot' },
+	              { className: 'dot disabled-with-border' },
 	              '4'
 	            )
 	          )

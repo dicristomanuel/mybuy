@@ -32,8 +32,9 @@
 
 .numbers {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   padding: 30px;
+  width: 100%;
 }
 
 .locator {
@@ -44,38 +45,69 @@
   width: 54%;
   margin: 50px auto;
   height: 55px;
+  align-items: center;
 }
 
 .dot {
-  background: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 50%;
 	width: 30px;
 	height: 30px;
-  border: 2px solid #31cca3;
   font-weight: bold;
-  color: #31cca3
 }
 
 .stages {
   display: flex;
-  justify-content: space-around;
-  color: #31cca3
+  justify-content: space-between;
+  color: #31cca3;
+  width: 100%;
+}
+
+.margin-left {
+  margin-left: -20px;
 }
 
 .stage {
-  font-size: 13px
+  font-size: 13px;
 }
 
 .line {
-  border: 2px solid #31cca3;
-  position: absolute;
-  width: 71%;
-  left: 14%;
-  top: 75%;
+  border: 2px solid gray;
+  width: 25%;
   z-index: -1;
+  margin-top: 13px;
+}
+
+.line-enabled {
+  border: 2px solid #31cca3;
+}
+
+.previous {
+  color: white;
+  background: #31cca3;
+  border-radius: 50%;
+  border: 2px solid #31cca3;
+}
+
+.enabled {
+  color: #31cca3;
+  background: white;
+  border-radius: 50%;
+  border: 2px solid #31cca3;
+}
+
+.disabled {
+  background: lightgray;
+  border-radius: 50%;
+  color: darkgray;
+}
+
+.disabled-with-border {
+  background: lightgray;
+  color: darkgray;
+  border-radius: 50%;
+  border: 2px solid gray;
 }
 
 .categories-container {
