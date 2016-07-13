@@ -1,45 +1,42 @@
 import React, { PropTypes, Component } from 'react';
+import FlipMove from 'react-flip-move';
+import Category from './category';
+
 
 class CategoriesList extends Component {
+  mouseOver(category) {
+    if (category === 'foodAndBeverage') {
+      this.refs[category].className = 'image-hover food-and-beverage';
+    } else {
+      this.refs[category].className = 'image-hover';
+    }
+  }
+
+  mouseLeave(category) {
+    if (category === 'foodAndBeverage') {
+      this.refs[category].className = 'food-and-beverage';
+    } else {
+      this.refs[category].className = '';
+    }
+  }
+
+  categories() {
+    return [
+      {name: 'beauty', key: 1},
+      {name: 'restaurants', key: 2},
+      {name: 'pets', key: 3},
+      {name: 'HomeAndGarden', key: 4},
+      {name: 'FoodAndBeverage', key: 5},
+      {name: 'BabyAndKids', key: 6}
+    ];
+  }
+
+
   render() {
     return(
-      <div className='main-container'>
-        <div className='title'>
-          Choose a category
-        </div>
-        <div className='categories-container'>
-          <div className='column'>
-            <div className='category'>
-              <div className='overlay'></div>
-              <img src='/assets/images/beauty.jpg'/>
-            </div>
-            <div className='category'>
-              <div className='overlay'></div>
-              <img src='/assets/images/baby_and_kids.jpg'/>
-            </div>
-          </div>
-          <div className='column column-center'>
-            <div className='category-big'>
-              <div className='overlay'></div>
-              <img src='/assets/images/food_and_beverage.jpg'/>
-            </div>
-            <div className='category-small'>
-              <div className='overlay'></div>
-              <img src='/assets/images/restaurants.jpg'/>
-            </div>
-          </div>
-          <div className='column'>
-            <div className='category'>
-              <div className='overlay'></div>
-              <img src='/assets/images/home_and_garden.jpg'/>
-            </div>
-            <div className='category'>
-              <div className='overlay'></div>
-              <img src='/assets/images/pets.jpg'/>
-            </div>
-          </div>
-        </div>
-      </div>
+      <FlipMove easing="cubic-bezier(.49,.05,.62,.9)" className='categories-container'>
+        { this.categories().map(category => <Category name={category.name} key={category.key}/>) }
+      </FlipMove>
     )
   }
 }
@@ -49,6 +46,3 @@ class CategoriesList extends Component {
 // }
 
 export default CategoriesList;
-
-
-const vectors = [[700, 716], [14000, 6426]]

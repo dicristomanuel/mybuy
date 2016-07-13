@@ -1,6 +1,4 @@
 import { Server } from 'hapi';
-import Good from 'good';
-import GoodConsole from 'good-console';
 import Blipp from 'blipp';
 import Inert from 'inert';
 import Yar from 'Yar'
@@ -18,14 +16,6 @@ const io = require('socket.io')(server.listener);
 server.register([
   Inert,
   { register: Blipp },
-  // { register: Good,
-  //   options: {
-  //     reporters: [{
-  //       reporter: GoodConsole,
-  //       events: { log: '*', response: '*' }
-  //     }]
-  //   },
-  // },
   {
     register: Yar,
     options: {cookieOptions: {

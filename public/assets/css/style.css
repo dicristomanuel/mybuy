@@ -1,68 +1,76 @@
+@font-face {
+    font-family: 'proximaNovaBold';
+    src: url('/assets/fonts/proximaNovaBold.otf');
+}
+
+@font-face {
+    font-family: 'proximaNovaRegular';
+    src: url('/assets/fonts/proximaNovaRegular.otf');
+}
+
 .main-container {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'proximaNovaRegular';
 }
 
 .title {
   padding: 30px;
   font-size: 30px;
   text-align: center;
+  font-family: 'proximaNovaBold';
 }
 
 .categories-container {
   display: flex;
-  justify-content: space-around;
-  width: 1295px;
-  margin: 0 auto;
-}
-
-.column {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 772px;
-  max-width: 490px;
-  overflow: hidden;
-}
-
-.column-center {
-  height: 772px;
-
+  display: -webkit-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1295px;
+  margin: 0px auto;
 }
 
 .category {
-  width: 380px;
+  width: 417px;
   height: 380px;
   position: relative;
   overflow: hidden;
+  margin-right: 10px;
+  margin-bottom: 10px;
 }
 
-.category-small {
-  width: 590px;
-  height: 295px;
-  position: relative;
-  overflow: hidden;
+.category-title {
+  position: absolute;
+  z-index: 10;
+  text-align: center;
+  width: 100%;
+  color: white;
+  margin-top: 40%;
+  font-size: 30px;
 }
 
-.category-big {
-  width: 545px;
-  height: 465px;
-  position: relative;
-  overflow: hidden;
+.food-and-beverage {
+  width: 118%;
 }
 
 img {
   width: 100%;
+  -webkit-filter: grayscale(80%);
+  filter: grayscale(80%);
+  transition: grayscale .15s ease-in-out;
+  transition: all .2s ease-in-out;
+
+}
+
+.image-hover {
+  -webkit-filter: grayscale(0%);
+  filter: grayscale(0%);
+  transform: scale(1.1);
 }
 
 .overlay {
-  background: RGB(87, 88, 88);
+  background: RGB(61, 69, 77);
   position: absolute;
   width: 0px;
   padding: 100%;
-  opacity: .5;
-  transition: opacity .15s ease-in-out;
-}
-
-.overlay:hover {
-  opacity: .1;
+  opacity: .3;
+  z-index: 1;
 }
