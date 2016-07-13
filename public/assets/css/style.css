@@ -113,6 +113,15 @@
   position: relative;
 }
 
+.brand-subtitle {
+  width: 100%;
+  text-align: center;
+  font-family: 'proximaNovaBold';
+  font-size: 17px;
+  color: #3D454D;
+  margin: 20px auto;
+}
+
 .hero-title {
   z-index: 999;
   font-size: 40px;
@@ -131,6 +140,24 @@
   opacity: .8;
   background: #3D454D;
   position: absolute;
+}
+
+.brandlist {
+  display: flex;
+  width: 50%;
+  margin: 60px auto;
+  justify-content: space-between;
+}
+
+.buttons {
+  display: flex;
+  width: 49%;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+
+.button {
+  color: #31cca3;
 }
 
 .stages {

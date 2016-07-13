@@ -30549,6 +30549,49 @@
 	        _react2.default.createElement(_header2.default, null),
 	        _react2.default.createElement(_hero2.default, { category: this.props.params.category }),
 	        _react2.default.createElement(_locator2.default, { stage: 2 }),
+	        _react2.default.createElement(
+	          'p',
+	          { className: 'brand-subtitle' },
+	          'Next let\'s pick some of your preferred stores.'
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'brandlist' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'brand' },
+	            _react2.default.createElement('img', { src: '/assets/images/petco.jpg' })
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'brand' },
+	            _react2.default.createElement('img', { src: '/assets/images/petsmart.jpg' })
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'brand' },
+	            _react2.default.createElement('img', { src: '/assets/images/petsupplies.jpg' })
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'brand' },
+	            _react2.default.createElement('img', { src: '/assets/images/pupjoy.jpg' })
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'buttons' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'button' },
+	            '< Back'
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'button' },
+	            'next >'
+	          )
+	        ),
 	        _react2.default.createElement(_footer2.default, null)
 	      );
 	    }
