@@ -1,6 +1,8 @@
 import React, { PropTypes, Component } from 'react';
 import FlipMove from 'react-flip-move';
 import Category from './category';
+import Header from './header';
+import Footer from './footer';
 
 
 class CategoriesList extends Component {
@@ -34,51 +36,52 @@ class CategoriesList extends Component {
   render() {
     return(
       <div>
-        <p className='title'>
-          Leave the hard work to us -- we&rsquo;ll help you find the best deals available within your budget.
-        </p>
-        <p className='sub-title'>
-          Start by selecting the category you want to shop.
-        </p>
+        <Header />
+          <p className='title'>
+            Leave the hard work to us -- we&rsquo;ll help you find the best deals available within your budget.
+          </p>
+          <p className='sub-title'>
+            Start by selecting the category you want to shop.
+          </p>
 
-        <div className='locator'>
+          <div className='locator'>
 
 
-          <div className='stages'>
-            <div className='stage margin-left'>
-              CHOOSE CATEGORY
+            <div className='stages'>
+              <div className='stage margin-left'>
+                CHOOSE CATEGORY
+              </div>
+              <div className='stage margin-left disabled'>
+                PICK BRANDS
+              </div>
+              <div className='stage disabled'>
+                ENTER BUDGET
+              </div>
+              <div className='stage disabled'>
+                VIEW RESULTS
+              </div>
             </div>
-            <div className='stage margin-left disabled'>
-              PICK BRANDS
-            </div>
-            <div className='stage disabled'>
-              ENTER BUDGET
-            </div>
-            <div className='stage disabled'>
-              VIEW RESULTS
-            </div>
-          </div>
 
-          <div className='numbers'>
-            <div className='dot enabled'>
-              1
+            <div className='numbers'>
+              <div className='dot enabled'>
+                1
+              </div>
+              <div className='line line-enabled'>
+              </div>
+              <div className='dot disabled-with-border'>
+                2
+              </div>
+              <div className='line'>
+              </div>
+              <div className='dot disabled-with-border'>
+                3
+              </div>
+              <div className='line'>
+              </div>
+              <div className='dot disabled-with-border'>
+                4
+              </div>
             </div>
-            <div className='line line-enabled'>
-            </div>
-            <div className='dot disabled-with-border'>
-              2
-            </div>
-            <div className='line'>
-            </div>
-            <div className='dot disabled-with-border'>
-              3
-            </div>
-            <div className='line'>
-            </div>
-            <div className='dot disabled-with-border'>
-              4
-            </div>
-          </div>
 
         </div>
 
@@ -87,6 +90,7 @@ class CategoriesList extends Component {
             <Category name={category.name} key={category.key}/>)
           }
         </FlipMove>
+        <Footer />
       </div>
     )
   }

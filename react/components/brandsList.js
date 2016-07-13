@@ -1,4 +1,7 @@
 import React, { PropTypes, Component } from 'react';
+import Header from './header';
+import Footer from './footer';
+
 
 class BrandsList extends Component {
   componentWillMount() {
@@ -8,14 +11,12 @@ class BrandsList extends Component {
   render() {
     return(
       <div className='brands-container'>
+        <Header />
 
+        <Footer />
       </div>
     )
   }
 }
-
-// BrandsList.PropTypes = {
-//   giftcards: PropTypes.string.isRequired,
-// }
 
 export default BrandsList;

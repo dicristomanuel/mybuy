@@ -5,22 +5,22 @@ import { browserHistory } from 'react-router';
 class Category extends Component {
   componentDidMount() {
     if (this.props.name === 'FoodAndBeverage')
-      this.refs.FoodAndBeverage.className = 'food-and-beverage';
+      this.refs.FoodAndBeverage.className = 'food-and-beverage img-category';
   }
 
   mouseOver(category) {
     if (category === 'FoodAndBeverage') {
-      this.refs[category].className = 'image-hover food-and-beverage';
+      this.refs[category].className = 'image-hover food-and-beverage img-category';
     } else {
-      this.refs[category].className = 'image-hover';
+      this.refs[category].className = 'image-hover img-category';
     }
   }
 
   mouseLeave(category) {
     if (category === 'FoodAndBeverage') {
-      this.refs[category].className = 'food-and-beverage';
+      this.refs[category].className = 'food-and-beverage img-category';
     } else {
-      this.refs[category].className = '';
+      this.refs[category].className = 'img-category';
     }
   }
 
@@ -45,7 +45,7 @@ class Category extends Component {
       <div className='category' onClick={ this.onClick.bind(this) } onMouseEnter={ this.mouseOver.bind(this, name) } onMouseLeave={ this.mouseLeave.bind(this, name) }>
         <div className='category-title'>{this.capitalize(name)}</div>
         <div className='overlay'></div>
-        <img src={`/assets/images/${name}.jpg`} ref={name}/>
+        <img src={`/assets/images/${name}.jpg`} className='img-category' ref={name}/>
       </div>
     )
   }
