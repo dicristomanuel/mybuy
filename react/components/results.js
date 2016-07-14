@@ -8,7 +8,6 @@ import { findDOMNode } from 'react-dom';
 class Results extends Component {
 
   toggleCheckout() {
-    // console.log(this.refs);
     this.refs.modal.className = this.refs.modal.className.includes('show') ? 'checkout hide' : 'checkout show';
   }
 

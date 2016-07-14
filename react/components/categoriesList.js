@@ -7,6 +7,11 @@ import Locator from './locator';
 
 
 class CategoriesList extends Component {
+
+  componentDidMount() {
+    this.refs.main.scrollTop = 0;
+  }
+
   mouseOver(category) {
     if (category === 'foodAndBeverage') {
       this.refs[category].className = 'image-hover food-and-beverage';
@@ -36,7 +41,7 @@ class CategoriesList extends Component {
 
   render() {
     return(
-      <div>
+      <div ref='main'>
         <Header />
           <p className='title'>
             Leave the hard work to us -- we&rsquo;ll help you find the best deals available within your budget.

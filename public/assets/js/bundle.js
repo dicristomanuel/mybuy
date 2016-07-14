@@ -62,7 +62,9 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	_reactDom2.default.render(_react2.default.createElement(_reactRouter.Router, { history: _reactRouter.browserHistory, routes: _routes2.default }), document.getElementById('app'));
+	_reactDom2.default.render(_react2.default.createElement(_reactRouter.Router, { history: _reactRouter.browserHistory, onUpdate: function onUpdate() {
+	    return window.scrollTo(0, 0);
+	  }, routes: _routes2.default }), document.getElementById('app'));
 
 /***/ },
 /* 1 */
@@ -26752,6 +26754,11 @@
 	  }
 
 	  _createClass(CategoriesList, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      this.refs.main.scrollTop = 0;
+	    }
+	  }, {
 	    key: 'mouseOver',
 	    value: function mouseOver(category) {
 	      if (category === 'foodAndBeverage') {
@@ -26779,7 +26786,7 @@
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
-	        null,
+	        { ref: 'main' },
 	        _react2.default.createElement(_header2.default, null),
 	        _react2.default.createElement(
 	          'p',
@@ -30252,7 +30259,7 @@
 	  }, {
 	    key: 'onClick',
 	    value: function onClick() {
-	      if (this.props.name === 'pets') _reactRouter.browserHistory.push('/brands-list/' + this.props.name);else _reactRouter.browserHistory.push('/brands-list/' + this.props.name);
+	      if (this.props.name === 'pets') _reactRouter.browserHistory.push('/brands-list/pets/' + this.props.name);else _reactRouter.browserHistory.push('/brands-list/' + this.props.name);
 	    }
 	  }, {
 	    key: 'render',
@@ -30294,6 +30301,8 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reactRouter = __webpack_require__(172);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -30312,11 +30321,16 @@
 	  }
 
 	  _createClass(Header, [{
+	    key: 'toHomepage',
+	    value: function toHomepage() {
+	      _reactRouter.browserHistory.push('/');
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'header' },
+	        { className: 'header', onClick: this.toHomepage.bind(this) },
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'header-image-container' },
@@ -30816,7 +30830,7 @@
 	        { className: 'brands-container' },
 	        _react2.default.createElement(_header2.default, null),
 	        _react2.default.createElement(_hero2.default, { category: this.props.params.category }),
-	        _react2.default.createElement(_locator2.default, { stage: 3 }),
+	        _react2.default.createElement(_locator2.default, { stage: 2 }),
 	        _react2.default.createElement(
 	          'p',
 	          { className: 'brand-subtitle' },
@@ -31054,7 +31068,6 @@
 	  _createClass(Results, [{
 	    key: 'toggleCheckout',
 	    value: function toggleCheckout() {
-	      // console.log(this.refs);
 	      this.refs.modal.className = this.refs.modal.className.includes('show') ? 'checkout hide' : 'checkout show';
 	    }
 	  }, {
