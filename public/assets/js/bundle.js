@@ -26672,6 +26672,10 @@
 
 	var _categoriesList2 = _interopRequireDefault(_categoriesList);
 
+	var _categoriesListAfter = __webpack_require__(259);
+
+	var _categoriesListAfter2 = _interopRequireDefault(_categoriesListAfter);
+
 	var _brandsListPets = __webpack_require__(255);
 
 	var _brandsListPets2 = _interopRequireDefault(_brandsListPets);
@@ -26697,7 +26701,8 @@
 	  _react2.default.createElement(_reactRouter.Route, { path: '/brands-list/pets/:category', component: _brandsListPets2.default }),
 	  _react2.default.createElement(_reactRouter.Route, { path: '/brands-list/:category', component: _brandsListFood2.default }),
 	  _react2.default.createElement(_reactRouter.Route, { path: '/budget/:category', component: _budget2.default }),
-	  _react2.default.createElement(_reactRouter.Route, { path: '/results/:category', component: _results2.default })
+	  _react2.default.createElement(_reactRouter.Route, { path: '/results/:category', component: _results2.default }),
+	  _react2.default.createElement(_reactRouter.Route, { path: '/categories', component: _categoriesListAfter2.default })
 	);
 
 /***/ },
@@ -26757,24 +26762,6 @@
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
 	      this.refs.main.scrollTop = 0;
-	    }
-	  }, {
-	    key: 'mouseOver',
-	    value: function mouseOver(category) {
-	      if (category === 'foodAndBeverage') {
-	        this.refs[category].className = 'image-hover food-and-beverage';
-	      } else {
-	        this.refs[category].className = 'image-hover';
-	      }
-	    }
-	  }, {
-	    key: 'mouseLeave',
-	    value: function mouseLeave(category) {
-	      if (category === 'foodAndBeverage') {
-	        this.refs[category].className = 'food-and-beverage';
-	      } else {
-	        this.refs[category].className = '';
-	      }
 	    }
 	  }, {
 	    key: 'categories',
@@ -30218,16 +30205,28 @@
 	        console.log(this.refs.pets);
 	        this.refs.pets.className = 'big-pets img-category';
 	      }
+
+	      if (this.props.origin === 'afterPurchase') {
+	        if (this.refs.FoodAndBeverageGray) this.refs.FoodAndBeverageGray.className += ' gray-text';
+	      }
 	    }
 	  }, {
 	    key: 'mouseOver',
 	    value: function mouseOver(category) {
-	      if (category === 'FoodAndBeverage') {
-	        this.refs[category].className = 'image-hover food-and-beverage img-category';
-	      } else if (category === 'pets') {
-	        this.refs[category].className = 'image-hover big-pets img-category';
+	      if (this.props.origin !== 'afterPurchase') {
+	        if (category === 'FoodAndBeverage') {
+	          this.refs[category].className = 'image-hover food-and-beverage img-category';
+	        } else if (category === 'pets') {
+	          this.refs[category].className = 'image-hover big-pets img-category';
+	        } else {
+	          this.refs[category].className = 'image-hover img-category';
+	        }
 	      } else {
-	        this.refs[category].className = 'image-hover img-category';
+	        if (category === 'pets') {
+	          this.refs[category].className = 'image-hover big-pets img-category';
+	        } else if (category !== 'FoodAndBeverage') {
+	          this.refs[category].className = 'image-hover img-category';
+	        }
 	      }
 	    }
 	  }, {
@@ -30244,12 +30243,24 @@
 	  }, {
 	    key: 'overlayHover',
 	    value: function overlayHover(overlay) {
-	      this.refs[overlay].style.opacity = '.4';
+	      if (this.props.origin === 'afterPurchase') {
+	        if (this.props.name !== 'FoodAndBeverage') {
+	          this.refs[overlay].style.opacity = '.4';
+	        }
+	      } else {
+	        this.refs[overlay].style.opacity = '.4';
+	      }
 	    }
 	  }, {
 	    key: 'overlayHoverOut',
 	    value: function overlayHoverOut(overlay) {
-	      this.refs[overlay].style.opacity = '.7';
+	      if (this.props.origin === 'afterPurchase') {
+	        if (this.props.name !== 'FoodAndBeverage') {
+	          this.refs[overlay].style.opacity = '.7';
+	        }
+	      } else {
+	        this.refs[overlay].style.opacity = '.7';
+	      }
 	    }
 	  }, {
 	    key: 'capitalize',
@@ -30265,13 +30276,12 @@
 	    key: 'render',
 	    value: function render() {
 	      var name = this.props.name;
-	      console.log(name);
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'category', onClick: this.onClick.bind(this), onMouseEnter: this.mouseOver.bind(this, name), onMouseLeave: this.mouseLeave.bind(this, name) },
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'category-title' },
+	          { className: 'category-title', ref: name + 'Gray' },
 	          this.capitalize(name)
 	        ),
 	        _react2.default.createElement('div', { className: 'overlay', onMouseEnter: this.overlayHover.bind(this, 'overlay-' + name), onMouseLeave: this.overlayHoverOut.bind(this, 'overlay-' + name), ref: 'overlay-' + name }),
@@ -31048,6 +31058,8 @@
 
 	var _reactDom = __webpack_require__(33);
 
+	var _reactRouter = __webpack_require__(172);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -31071,6 +31083,11 @@
 	      this.refs.modal.className = this.refs.modal.className.includes('show') ? 'checkout hide' : 'checkout show';
 	    }
 	  }, {
+	    key: 'toCategoriesAfterPurchase',
+	    value: function toCategoriesAfterPurchase() {
+	      _reactRouter.browserHistory.push('/categories');
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
@@ -31078,7 +31095,7 @@
 	        { className: 'results-container' },
 	        _react2.default.createElement(_header2.default, null),
 	        _react2.default.createElement(_hero2.default, { category: this.props.params.category }),
-	        _react2.default.createElement(_locator2.default, { stage: 3 }),
+	        _react2.default.createElement(_locator2.default, { stage: 4 }),
 	        _react2.default.createElement(
 	          'p',
 	          { className: 'brand-subtitle subtitle-budget' },
@@ -31092,7 +31109,7 @@
 	        ),
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'checkout hide', ref: 'modal', onClick: this.toggleCheckout.bind(this) },
+	          { className: 'checkout hide', ref: 'modal', onClick: this.toCategoriesAfterPurchase.bind(this) },
 	          _react2.default.createElement('img', { src: '/assets/images/buy-now-modal.png' })
 	        ),
 	        _react2.default.createElement(
@@ -31113,6 +31130,104 @@
 	}(_react.Component);
 
 	exports.default = Results;
+
+/***/ },
+/* 259 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactFlipMove = __webpack_require__(236);
+
+	var _reactFlipMove2 = _interopRequireDefault(_reactFlipMove);
+
+	var _category = __webpack_require__(249);
+
+	var _category2 = _interopRequireDefault(_category);
+
+	var _header = __webpack_require__(250);
+
+	var _header2 = _interopRequireDefault(_header);
+
+	var _footer = __webpack_require__(251);
+
+	var _footer2 = _interopRequireDefault(_footer);
+
+	var _locator = __webpack_require__(252);
+
+	var _locator2 = _interopRequireDefault(_locator);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var CategoriesListAfter = function (_Component) {
+	  _inherits(CategoriesListAfter, _Component);
+
+	  function CategoriesListAfter() {
+	    _classCallCheck(this, CategoriesListAfter);
+
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(CategoriesListAfter).apply(this, arguments));
+	  }
+
+	  _createClass(CategoriesListAfter, [{
+	    key: 'categories',
+	    value: function categories() {
+	      return [{ name: 'BabyAndKids', key: 6 }, { name: 'beauty', key: 1 }, { name: 'FoodAndBeverage', key: 5 }, { name: 'HomeAndGarden', key: 4 }, { name: 'pets', key: 3 }, { name: 'restaurants', key: 2 }];
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { ref: 'main' },
+	        _react2.default.createElement(_header2.default, null),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'success-message' },
+	          'Your purchase was successful!'
+	        ),
+	        _react2.default.createElement(
+	          'p',
+	          { className: 'title' },
+	          'Leave the hard work to us -- we’ll help you find the best deals available within your budget.'
+	        ),
+	        _react2.default.createElement(
+	          'p',
+	          { className: 'sub-title' },
+	          'Start by selecting the category you want to shop.'
+	        ),
+	        _react2.default.createElement(_locator2.default, { stage: 1 }),
+	        _react2.default.createElement(
+	          _reactFlipMove2.default,
+	          { easing: 'cubic-bezier(.49,.05,.62,.9)', className: 'categories-container' },
+	          this.categories().map(function (category) {
+	            return _react2.default.createElement(_category2.default, { name: category.name, origin: 'afterPurchase', key: category.key });
+	          })
+	        ),
+	        _react2.default.createElement(_footer2.default, null)
+	      );
+	    }
+	  }]);
+
+	  return CategoriesListAfter;
+	}(_react.Component);
+
+	exports.default = CategoriesListAfter;
 
 /***/ }
 /******/ ]);

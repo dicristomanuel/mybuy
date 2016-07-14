@@ -6,11 +6,7 @@ import Footer from './footer';
 import Locator from './locator';
 
 
-class CategoriesList extends Component {
-
-  componentDidMount() {
-    this.refs.main.scrollTop = 0;
-  }
+class CategoriesListAfter extends Component {
 
   categories() {
     return [
@@ -27,6 +23,9 @@ class CategoriesList extends Component {
     return(
       <div ref='main'>
         <Header />
+        <div className='success-message'>
+          Your purchase was successful!
+        </div>
           <p className='title'>
             Leave the hard work to us -- we&rsquo;ll help you find the best deals available within your budget.
           </p>
@@ -38,7 +37,7 @@ class CategoriesList extends Component {
 
         <FlipMove easing="cubic-bezier(.49,.05,.62,.9)" className='categories-container'>
           { this.categories().map(category =>
-            <Category name={category.name} key={category.key}/>)
+            <Category name={category.name} origin='afterPurchase' key={category.key}/>)
           }
         </FlipMove>
         <Footer />
@@ -47,4 +46,4 @@ class CategoriesList extends Component {
   }
 }
 
-export default CategoriesList;
+export default CategoriesListAfter;

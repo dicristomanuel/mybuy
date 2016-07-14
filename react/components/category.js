@@ -10,15 +10,28 @@ class Category extends Component {
       console.log(this.refs.pets);
       this.refs.pets.className = 'big-pets img-category';
     }
+
+    if (this.props.origin === 'afterPurchase') {
+      if (this.refs.FoodAndBeverageGray)
+        this.refs.FoodAndBeverageGray.className += ' gray-text'
+    }
   }
 
   mouseOver(category) {
-    if (category === 'FoodAndBeverage') {
-      this.refs[category].className = 'image-hover food-and-beverage img-category';
-    } else if (category === 'pets') {
-      this.refs[category].className = 'image-hover big-pets img-category';
+    if (this.props.origin !== 'afterPurchase') {
+      if (category === 'FoodAndBeverage') {
+        this.refs[category].className = 'image-hover food-and-beverage img-category';
+      } else if (category === 'pets') {
+        this.refs[category].className = 'image-hover big-pets img-category';
+      } else {
+        this.refs[category].className = 'image-hover img-category';
+      }
     } else {
-      this.refs[category].className = 'image-hover img-category';
+      if (category === 'pets') {
+        this.refs[category].className = 'image-hover big-pets img-category';
+      } else if (category !== 'FoodAndBeverage') {
+        this.refs[category].className = 'image-hover img-category';
+      }
     }
   }
 
@@ -33,11 +46,23 @@ class Category extends Component {
   }
 
   overlayHover(overlay) {
-    this.refs[overlay].style.opacity = '.4'
+    if (this.props.origin === 'afterPurchase') {
+      if (this.props.name !== 'FoodAndBeverage') {
+        this.refs[overlay].style.opacity = '.4'
+      }
+    } else {
+      this.refs[overlay].style.opacity = '.4'
+    }
   }
 
   overlayHoverOut(overlay) {
-    this.refs[overlay].style.opacity = '.7'
+    if (this.props.origin === 'afterPurchase') {
+      if (this.props.name !== 'FoodAndBeverage') {
+        this.refs[overlay].style.opacity = '.7'
+      }
+    } else {
+      this.refs[overlay].style.opacity = '.7'
+    }
   }
 
   capitalize(name) {
@@ -60,10 +85,9 @@ class Category extends Component {
 
   render() {
     const name = this.props.name
-    console.log(name);
     return(
       <div className='category' onClick={ this.onClick.bind(this) } onMouseEnter={ this.mouseOver.bind(this, name) } onMouseLeave={ this.mouseLeave.bind(this, name) }>
-        <div className='category-title'>{this.capitalize(name)}</div>
+        <div className='category-title' ref={`${name}Gray`}>{this.capitalize(name)}</div>
         <div className='overlay' onMouseEnter={this.overlayHover.bind(this, `overlay-${name}`)} onMouseLeave={this.overlayHoverOut.bind(this, `overlay-${name}`)} ref={`overlay-${name}`}></div>
         <img src={`/assets/images/${name}.jpg`} className='img-category' ref={name}/>
       </div>
