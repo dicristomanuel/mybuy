@@ -26682,6 +26682,10 @@
 
 	var _budget2 = _interopRequireDefault(_budget);
 
+	var _results = __webpack_require__(258);
+
+	var _results2 = _interopRequireDefault(_results);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	exports.default = _react2.default.createElement(
@@ -26690,7 +26694,8 @@
 	  _react2.default.createElement(_reactRouter.IndexRoute, { component: _categoriesList2.default }),
 	  _react2.default.createElement(_reactRouter.Route, { path: '/brands-list/pets/:category', component: _brandsListPets2.default }),
 	  _react2.default.createElement(_reactRouter.Route, { path: '/brands-list/:category', component: _brandsListFood2.default }),
-	  _react2.default.createElement(_reactRouter.Route, { path: '/budget/:category', component: _budget2.default })
+	  _react2.default.createElement(_reactRouter.Route, { path: '/budget/:category', component: _budget2.default }),
+	  _react2.default.createElement(_reactRouter.Route, { path: '/results/:category', component: _results2.default })
 	);
 
 /***/ },
@@ -30247,7 +30252,7 @@
 	  }, {
 	    key: 'onClick',
 	    value: function onClick() {
-	      if (this.props.name === 'pets') _reactRouter.browserHistory.push('/brands-list/pets/pets');else _reactRouter.browserHistory.push('/brands-list/' + this.props.name);
+	      if (this.props.name === 'pets') _reactRouter.browserHistory.push('/brands-list/' + this.props.name);else _reactRouter.browserHistory.push('/brands-list/' + this.props.name);
 	    }
 	  }, {
 	    key: 'render',
@@ -30919,6 +30924,8 @@
 
 	var _reactDom = __webpack_require__(33);
 
+	var _reactRouter = __webpack_require__(172);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -30937,6 +30944,11 @@
 	  }
 
 	  _createClass(Budget, [{
+	    key: 'toResults',
+	    value: function toResults() {
+	      _reactRouter.browserHistory.push('/results/' + this.props.params.category);
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
@@ -30961,7 +30973,7 @@
 	              { className: 'dollar-sign' },
 	              '$'
 	            ),
-	            _react2.default.createElement('input', { type: 'number', className: 'digits' })
+	            _react2.default.createElement('input', { type: 'number', placeholder: '150.00', className: 'digits' })
 	          )
 	        ),
 	        _react2.default.createElement(
@@ -30974,8 +30986,8 @@
 	          ),
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'button-next' },
-	            'NEXT  >'
+	            { className: 'button-next', onClick: this.toResults.bind(this) },
+	            'NEXT >'
 	          )
 	        ),
 	        _react2.default.createElement(_footer2.default, null)
@@ -30987,6 +30999,107 @@
 	}(_react.Component);
 
 	exports.default = Budget;
+
+/***/ },
+/* 258 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _header = __webpack_require__(250);
+
+	var _header2 = _interopRequireDefault(_header);
+
+	var _footer = __webpack_require__(251);
+
+	var _footer2 = _interopRequireDefault(_footer);
+
+	var _hero = __webpack_require__(254);
+
+	var _hero2 = _interopRequireDefault(_hero);
+
+	var _locator = __webpack_require__(252);
+
+	var _locator2 = _interopRequireDefault(_locator);
+
+	var _reactDom = __webpack_require__(33);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Results = function (_Component) {
+	  _inherits(Results, _Component);
+
+	  function Results() {
+	    _classCallCheck(this, Results);
+
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Results).apply(this, arguments));
+	  }
+
+	  _createClass(Results, [{
+	    key: 'toggleCheckout',
+	    value: function toggleCheckout() {
+	      // console.log(this.refs);
+	      this.refs.modal.className = this.refs.modal.className.includes('show') ? 'checkout hide' : 'checkout show';
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'results-container' },
+	        _react2.default.createElement(_header2.default, null),
+	        _react2.default.createElement(_hero2.default, { category: this.props.params.category }),
+	        _react2.default.createElement(_locator2.default, { stage: 3 }),
+	        _react2.default.createElement(
+	          'p',
+	          { className: 'brand-subtitle subtitle-budget' },
+	          'Based upon your selection and budget, here are your results.'
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'container-results', onClick: this.toggleCheckout.bind(this) },
+	          _react2.default.createElement('img', { src: '/assets/images/trader-joes-table.png', className: 'table' }),
+	          _react2.default.createElement('img', { src: '/assets/images/whole-foods-table.png', className: 'table' })
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'checkout hide', ref: 'modal', onClick: this.toggleCheckout.bind(this) },
+	          _react2.default.createElement('img', { src: '/assets/images/buy-now-modal.png' })
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'buttons' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'button' },
+	            '< Back'
+	          )
+	        ),
+	        _react2.default.createElement(_footer2.default, null)
+	      );
+	    }
+	  }]);
+
+	  return Results;
+	}(_react.Component);
+
+	exports.default = Results;
 
 /***/ }
 /******/ ]);

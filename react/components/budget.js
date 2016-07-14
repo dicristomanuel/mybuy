@@ -4,8 +4,14 @@ import Footer from './footer';
 import Hero from './hero';
 import Locator from './locator';
 import { findDOMNode } from 'react-dom';
+import { browserHistory } from 'react-router';
+
 
 class Budget extends Component {
+
+  toResults() {
+    browserHistory.push(`/results/${this.props.params.category}`);
+  }
 
   render() {
     return(
@@ -18,7 +24,7 @@ class Budget extends Component {
           <div className='input-container'>
             <div className='input'>
               <div className='dollar-sign'>$</div>
-              <input type="number" className='digits'></input>
+              <input type="number" placeholder='150.00' className='digits'></input>
             </div>
           </div>
 
@@ -26,8 +32,8 @@ class Budget extends Component {
             <div className='button'>
               &lt; Back
             </div>
-            <div className='button-next'>
-              NEXT  &gt;
+            <div className='button-next' onClick={this.toResults.bind(this)}>
+              NEXT &gt;
             </div>
           </div>
         <Footer />

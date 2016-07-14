@@ -276,6 +276,46 @@
   transform: scale(1.1);
 }
 
+.container-results {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.table {
+  margin: 0 auto;
+  width: 35%;
+  margin-bottom: 20px;
+  min-width: 800px;
+}
+
+.results-container {
+  position: relative;
+}
+
+.hide {
+  display: none;
+
+}
+
+.show {
+  display: block;
+}
+
+.checkout {
+  position: absolute;
+  top: 0;
+  background: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 100%;
+}
+
+.checkout img {
+  margin-top: 7%;
+  margin-left: 35%;
+  width: 27%;
+}
+
 .overlay {
   background: #3D454D;
   position: absolute;
@@ -295,13 +335,18 @@
   border: none;
   align-self: center;
   margin-left: 20px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
+  letter-spacing: 2px;
 }
 
 .digits::-webkit-outer-spin-button,
 .digits::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
+}
+
+.digits::-webkit-input-placeholder {
+  opacity: .5;
 }
 
 .dollar-sign {
