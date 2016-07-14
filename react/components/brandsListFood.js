@@ -53,7 +53,7 @@ class BrandsListFood extends Component {
             </div>
             <div className='brand' onClick={this.showCheck.bind(this, 'traderCheck')}>
               <div className='check hide' ref='traderCheck'></div>
-              <img src='/assets/images/publix-gift-card.png'></img>
+              <img src='/assets/images/trader-joes-gift-card.png'></img>
             </div>
             <div className='brand' onClick={this.showCheck.bind(this, 'wholeCheck')}>
               <div className='check hide' ref='wholeCheck'></div>

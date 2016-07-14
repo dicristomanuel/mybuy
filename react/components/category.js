@@ -85,15 +85,19 @@ class Category extends Component {
 
   render() {
     const name = this.props.name
+    const image = this.props.origin === 'afterPurchase' &&
+                  name === 'FoodAndBeverage' ?
+                  `/assets/images/FoodAndBeverageB&W.jpg` :
+                  `/assets/images/${name}.jpg`
     return(
       <div className='category' onClick={ this.onClick.bind(this) } onMouseEnter={ this.mouseOver.bind(this, name) } onMouseLeave={ this.mouseLeave.bind(this, name) }>
         <div className='category-title' ref={`${name}Gray`}>{this.capitalize(name)}</div>
         <div className='overlay' onMouseEnter={this.overlayHover.bind(this, `overlay-${name}`)} onMouseLeave={this.overlayHoverOut.bind(this, `overlay-${name}`)} ref={`overlay-${name}`}></div>
-        <img src={`/assets/images/${name}.jpg`} className='img-category' ref={name}/>
+        {}
+        <img src={image} className='img-category' ref={name}/>
       </div>
     )
   }
 }
-
 
 export default Category;

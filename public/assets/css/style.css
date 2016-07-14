@@ -31,7 +31,7 @@
 }
 
 .success-message {
-  background: #5af088;
+  background: #4ED1AA;
   margin-top: 90px;
   width: 100%;
   height: 80px;
@@ -396,6 +396,10 @@
 
 .food-and-beverage {
   width: 118%;
+}
+
+.food-and-beverage img {
+  filter: grayscale(100%);
 }
 
 .big-pets {

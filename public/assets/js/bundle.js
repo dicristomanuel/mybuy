@@ -30276,6 +30276,7 @@
 	    key: 'render',
 	    value: function render() {
 	      var name = this.props.name;
+	      var image = this.props.origin === 'afterPurchase' && name === 'FoodAndBeverage' ? '/assets/images/FoodAndBeverageB&W.jpg' : '/assets/images/' + name + '.jpg';
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'category', onClick: this.onClick.bind(this), onMouseEnter: this.mouseOver.bind(this, name), onMouseLeave: this.mouseLeave.bind(this, name) },
@@ -30285,7 +30286,7 @@
 	          this.capitalize(name)
 	        ),
 	        _react2.default.createElement('div', { className: 'overlay', onMouseEnter: this.overlayHover.bind(this, 'overlay-' + name), onMouseLeave: this.overlayHoverOut.bind(this, 'overlay-' + name), ref: 'overlay-' + name }),
-	        _react2.default.createElement('img', { src: '/assets/images/' + name + '.jpg', className: 'img-category', ref: name })
+	        _react2.default.createElement('img', { src: image, className: 'img-category', ref: name })
 	      );
 	    }
 	  }]);
@@ -30985,7 +30986,7 @@
 	            'div',
 	            { className: 'brand', onClick: this.showCheck.bind(this, 'traderCheck') },
 	            _react2.default.createElement('div', { className: 'check hide', ref: 'traderCheck' }),
-	            _react2.default.createElement('img', { src: '/assets/images/publix-gift-card.png' })
+	            _react2.default.createElement('img', { src: '/assets/images/trader-joes-gift-card.png' })
 	          ),
 	          _react2.default.createElement(
 	            'div',
