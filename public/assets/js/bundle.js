@@ -30833,6 +30833,11 @@
 	      _reactRouter.browserHistory.push('/budget/' + this.props.params.category);
 	    }
 	  }, {
+	    key: 'showCheck',
+	    value: function showCheck(check) {
+	      this.refs[check].className = this.refs[check].className.includes('hide') ? 'check' : 'check hide';
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
@@ -30881,12 +30886,14 @@
 	          ),
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'brand' },
-	            _react2.default.createElement('img', { src: '/assets/images/trader-joe-s-gift-card.png' })
+	            { className: 'brand', onClick: this.showCheck.bind(this, 'traderCheck') },
+	            _react2.default.createElement('div', { className: 'check hide', ref: 'traderCheck' }),
+	            _react2.default.createElement('img', { src: '/assets/images/publix-gift-card.png' })
 	          ),
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'brand' },
+	            { className: 'brand', onClick: this.showCheck.bind(this, 'wholeCheck') },
+	            _react2.default.createElement('div', { className: 'check hide', ref: 'wholeCheck' }),
 	            _react2.default.createElement('img', { src: '/assets/images/whole-foods-gift-card.png' })
 	          )
 	        ),

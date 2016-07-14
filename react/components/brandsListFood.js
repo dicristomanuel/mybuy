@@ -19,6 +19,12 @@ class BrandsListFood extends Component {
     browserHistory.push(`/budget/${this.props.params.category}`);
   }
 
+  showCheck(check) {
+    this.refs[check].className = this.refs[check].className.includes('hide') ?
+    'check' :
+    'check hide'
+  }
+
   render() {
     return(
       <div className='brands-container'>
@@ -45,10 +51,12 @@ class BrandsListFood extends Component {
             <div className='brand'>
               <img src='/assets/images/starbucks-gift-card.png'></img>
             </div>
-            <div className='brand'>
-              <img src='/assets/images/trader-joe-s-gift-card.png'></img>
+            <div className='brand' onClick={this.showCheck.bind(this, 'traderCheck')}>
+              <div className='check hide' ref='traderCheck'></div>
+              <img src='/assets/images/publix-gift-card.png'></img>
             </div>
-            <div className='brand'>
+            <div className='brand' onClick={this.showCheck.bind(this, 'wholeCheck')}>
+              <div className='check hide' ref='wholeCheck'></div>
               <img src='/assets/images/whole-foods-gift-card.png'></img>
             </div>
           </div>

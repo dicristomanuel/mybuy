@@ -21,6 +21,15 @@
   border-bottom: 1px solid #eff0f1;
 }
 
+.check {
+  background-image: url('/assets/images/check-icon.svg');
+  padding: 17px;
+  background-size: cover;
+  position: absolute;
+  top: -14px;
+  right: -14px;
+}
+
 .success-message {
   background: #5af088;
   margin-top: 90px;
@@ -354,8 +363,8 @@
 
 .digits::-webkit-outer-spin-button,
 .digits::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .digits::-webkit-input-placeholder {
