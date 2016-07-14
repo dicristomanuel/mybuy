@@ -4,8 +4,10 @@ import Footer from './footer';
 import Hero from './hero';
 import Locator from './locator';
 import { findDOMNode } from 'react-dom';
+import { browserHistory } from 'react-router';
 
-class BrandsList extends Component {
+
+class BrandsListPets extends Component {
   componentWillMount() {
     // get brands to display for > this.props.params.category <
   }
@@ -13,6 +15,12 @@ class BrandsList extends Component {
   toggleActive(product) {
     this.refs[product].className += ' active'
   }
+
+
+  toBudget() {
+    browserHistory.push(`/budget/${this.props.params.category}`);
+  }
+
 
   render() {
     return(
@@ -22,36 +30,36 @@ class BrandsList extends Component {
           <Locator stage={2}/>
           <p className='brand-subtitle'>{`Next let's pick some of your preferred stores.`}</p>
           <div className='brandlist'>
-            <div className='brand' ref='petco' onClick={this.toggleActive.bind(this, 'petco')}>
+            <div className='brand' ref='petco'>
               <img src='/assets/images/petco.jpg'></img>
             </div>
-            <div className='brand' ref='petsmart' onClick={this.toggleActive.bind(this, 'petsmart')}>
+            <div className='brand' ref='petsmart'>
               <img src='/assets/images/petsmart.jpg'></img>
             </div>
-            <div className='brand' ref='petsupplies' onClick={this.toggleActive.bind(this, 'petsupplies')}>
+            <div className='brand' ref='petsupplies'>
               <img src='/assets/images/petsupplies.jpg'></img>
             </div>
-            <div className='brand' ref='pupjoy' onClick={this.toggleActive.bind(this, 'pupjoy')}>
+            <div className='brand' ref='pupjoy'>
               <img src='/assets/images/pupjoy.jpg'></img>
             </div>
             <div className='brand'>
-              <img src='/assets/images/petco.jpg'></img>
+              <img src='/assets/images/ps.jpg'></img>
             </div>
             <div className='brand'>
-              <img src='/assets/images/petsmart.jpg'></img>
+              <img src='/assets/images/pet-extreme.jpg'></img>
             </div>
             <div className='brand'>
-              <img src='/assets/images/petsupplies.jpg'></img>
+              <img src='/assets/images/petland.jpg'></img>
             </div>
             <div className='brand'>
-              <img src='/assets/images/pupjoy.jpg'></img>
+              <img src='/assets/images/pet-valu.jpg'></img>
             </div>
           </div>
           <div className='buttons'>
             <div className='button'>
               &lt; Back
             </div>
-            <div className='button-next'>
+            <div className='button-next' onClick={this.toBudget.bind(this)}>
               NEXT  &gt;
             </div>
           </div>
@@ -61,4 +69,4 @@ class BrandsList extends Component {
   }
 }
 
-export default BrandsList;
+export default BrandsListPets;

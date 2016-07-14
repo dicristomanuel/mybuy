@@ -52,7 +52,10 @@ class Category extends Component {
   }
 
   onClick() {
-    browserHistory.push(`/brands-list/${this.props.name}`);
+    if (this.props.name === 'pets')
+      browserHistory.push('/brands-list/pets/pets');
+    else
+      browserHistory.push(`/brands-list/${this.props.name}`);
   }
 
   render() {
