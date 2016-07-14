@@ -26672,11 +26672,11 @@
 
 	var _categoriesList2 = _interopRequireDefault(_categoriesList);
 
-	var _categoriesListAfter = __webpack_require__(259);
+	var _categoriesListAfter = __webpack_require__(253);
 
 	var _categoriesListAfter2 = _interopRequireDefault(_categoriesListAfter);
 
-	var _brandsListPets = __webpack_require__(255);
+	var _brandsListPets = __webpack_require__(254);
 
 	var _brandsListPets2 = _interopRequireDefault(_brandsListPets);
 
@@ -30544,8 +30544,7 @@
 	exports.default = Locator;
 
 /***/ },
-/* 253 */,
-/* 254 */
+/* 253 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30560,6 +30559,26 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reactFlipMove = __webpack_require__(236);
+
+	var _reactFlipMove2 = _interopRequireDefault(_reactFlipMove);
+
+	var _category = __webpack_require__(249);
+
+	var _category2 = _interopRequireDefault(_category);
+
+	var _header = __webpack_require__(250);
+
+	var _header2 = _interopRequireDefault(_header);
+
+	var _footer = __webpack_require__(251);
+
+	var _footer2 = _interopRequireDefault(_footer);
+
+	var _locator = __webpack_require__(252);
+
+	var _locator2 = _interopRequireDefault(_locator);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -30568,54 +30587,62 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var Hero = function (_Component) {
-	  _inherits(Hero, _Component);
+	var CategoriesListAfter = function (_Component) {
+	  _inherits(CategoriesListAfter, _Component);
 
-	  function Hero() {
-	    _classCallCheck(this, Hero);
+	  function CategoriesListAfter() {
+	    _classCallCheck(this, CategoriesListAfter);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Hero).apply(this, arguments));
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(CategoriesListAfter).apply(this, arguments));
 	  }
 
-	  _createClass(Hero, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      this.refs.hero.style.backgroundImage = 'url(\'/assets/images/' + this.props.category + '-hero.jpg\')';
-	    }
-	  }, {
-	    key: 'capitalize',
-	    value: function capitalize(name) {
-	      if (name === 'FoodAndBeverage') return 'Food & Beverage';else if (name === 'HomeAndGarden') return 'Home & Garden';else if (name === 'BabyAndKids') return 'Baby & Kids';else return name.charAt(0).toUpperCase() + name.slice(1);
+	  _createClass(CategoriesListAfter, [{
+	    key: 'categories',
+	    value: function categories() {
+	      return [{ name: 'BabyAndKids', key: 6 }, { name: 'beauty', key: 1 }, { name: 'FoodAndBeverage', key: 5 }, { name: 'HomeAndGarden', key: 4 }, { name: 'pets', key: 3 }, { name: 'restaurants', key: 2 }];
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var category = this.props.category;
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'hero', ref: 'hero' },
-	        _react2.default.createElement('div', { className: 'dark-layout' }),
+	        { ref: 'main' },
+	        _react2.default.createElement(_header2.default, null),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'success-message' },
+	          'Your purchase was successful!'
+	        ),
 	        _react2.default.createElement(
 	          'p',
-	          { className: 'hero-title' },
-	          ' ',
-	          this.capitalize(category),
-	          ' '
-	        )
+	          { className: 'title' },
+	          'Leave the hard work to us -- we’ll help you find the best deals available within your budget.'
+	        ),
+	        _react2.default.createElement(
+	          'p',
+	          { className: 'sub-title' },
+	          'Start by selecting the category you want to shop.'
+	        ),
+	        _react2.default.createElement(_locator2.default, { stage: 1 }),
+	        _react2.default.createElement(
+	          _reactFlipMove2.default,
+	          { easing: 'cubic-bezier(.49,.05,.62,.9)', className: 'categories-container' },
+	          this.categories().map(function (category) {
+	            return _react2.default.createElement(_category2.default, { name: category.name, origin: 'afterPurchase', key: category.key });
+	          })
+	        ),
+	        _react2.default.createElement(_footer2.default, null)
 	      );
 	    }
 	  }]);
 
-	  return Hero;
+	  return CategoriesListAfter;
 	}(_react.Component);
-	// <div className='hero-title'>
-	// <p> {`Great! You selected ${category}`} </p>
-	// </div>
 
-	exports.default = Hero;
+	exports.default = CategoriesListAfter;
 
 /***/ },
-/* 255 */
+/* 254 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30638,7 +30665,7 @@
 
 	var _footer2 = _interopRequireDefault(_footer);
 
-	var _hero = __webpack_require__(254);
+	var _hero = __webpack_require__(255);
 
 	var _hero2 = _interopRequireDefault(_hero);
 
@@ -30765,6 +30792,76 @@
 	exports.default = BrandsListPets;
 
 /***/ },
+/* 255 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Hero = function (_Component) {
+	  _inherits(Hero, _Component);
+
+	  function Hero() {
+	    _classCallCheck(this, Hero);
+
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Hero).apply(this, arguments));
+	  }
+
+	  _createClass(Hero, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      this.refs.hero.style.backgroundImage = 'url(\'/assets/images/' + this.props.category + '-hero.jpg\')';
+	    }
+	  }, {
+	    key: 'capitalize',
+	    value: function capitalize(name) {
+	      if (name === 'FoodAndBeverage') return 'Food & Beverage';else if (name === 'HomeAndGarden') return 'Home & Garden';else if (name === 'BabyAndKids') return 'Baby & Kids';else return name.charAt(0).toUpperCase() + name.slice(1);
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var category = this.props.category;
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'hero', ref: 'hero' },
+	        _react2.default.createElement('div', { className: 'dark-layout' }),
+	        _react2.default.createElement(
+	          'p',
+	          { className: 'hero-title' },
+	          ' ',
+	          this.capitalize(category),
+	          ' '
+	        )
+	      );
+	    }
+	  }]);
+
+	  return Hero;
+	}(_react.Component);
+	// <div className='hero-title'>
+	// <p> {`Great! You selected ${category}`} </p>
+	// </div>
+
+	exports.default = Hero;
+
+/***/ },
 /* 256 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -30788,7 +30885,7 @@
 
 	var _footer2 = _interopRequireDefault(_footer);
 
-	var _hero = __webpack_require__(254);
+	var _hero = __webpack_require__(255);
 
 	var _hero2 = _interopRequireDefault(_hero);
 
@@ -30945,7 +31042,7 @@
 
 	var _footer2 = _interopRequireDefault(_footer);
 
-	var _hero = __webpack_require__(254);
+	var _hero = __webpack_require__(255);
 
 	var _hero2 = _interopRequireDefault(_hero);
 
@@ -31055,7 +31152,7 @@
 
 	var _footer2 = _interopRequireDefault(_footer);
 
-	var _hero = __webpack_require__(254);
+	var _hero = __webpack_require__(255);
 
 	var _hero2 = _interopRequireDefault(_hero);
 
@@ -31137,104 +31234,6 @@
 	}(_react.Component);
 
 	exports.default = Results;
-
-/***/ },
-/* 259 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactFlipMove = __webpack_require__(236);
-
-	var _reactFlipMove2 = _interopRequireDefault(_reactFlipMove);
-
-	var _category = __webpack_require__(249);
-
-	var _category2 = _interopRequireDefault(_category);
-
-	var _header = __webpack_require__(250);
-
-	var _header2 = _interopRequireDefault(_header);
-
-	var _footer = __webpack_require__(251);
-
-	var _footer2 = _interopRequireDefault(_footer);
-
-	var _locator = __webpack_require__(252);
-
-	var _locator2 = _interopRequireDefault(_locator);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var CategoriesListAfter = function (_Component) {
-	  _inherits(CategoriesListAfter, _Component);
-
-	  function CategoriesListAfter() {
-	    _classCallCheck(this, CategoriesListAfter);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(CategoriesListAfter).apply(this, arguments));
-	  }
-
-	  _createClass(CategoriesListAfter, [{
-	    key: 'categories',
-	    value: function categories() {
-	      return [{ name: 'BabyAndKids', key: 6 }, { name: 'beauty', key: 1 }, { name: 'FoodAndBeverage', key: 5 }, { name: 'HomeAndGarden', key: 4 }, { name: 'pets', key: 3 }, { name: 'restaurants', key: 2 }];
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        { ref: 'main' },
-	        _react2.default.createElement(_header2.default, null),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'success-message' },
-	          'Your purchase was successful!'
-	        ),
-	        _react2.default.createElement(
-	          'p',
-	          { className: 'title' },
-	          'Leave the hard work to us -- we’ll help you find the best deals available within your budget.'
-	        ),
-	        _react2.default.createElement(
-	          'p',
-	          { className: 'sub-title' },
-	          'Start by selecting the category you want to shop.'
-	        ),
-	        _react2.default.createElement(_locator2.default, { stage: 1 }),
-	        _react2.default.createElement(
-	          _reactFlipMove2.default,
-	          { easing: 'cubic-bezier(.49,.05,.62,.9)', className: 'categories-container' },
-	          this.categories().map(function (category) {
-	            return _react2.default.createElement(_category2.default, { name: category.name, origin: 'afterPurchase', key: category.key });
-	          })
-	        ),
-	        _react2.default.createElement(_footer2.default, null)
-	      );
-	    }
-	  }]);
-
-	  return CategoriesListAfter;
-	}(_react.Component);
-
-	exports.default = CategoriesListAfter;
 
 /***/ }
 /******/ ]);
